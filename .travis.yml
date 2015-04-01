@@ -5,7 +5,9 @@ php:
 services:
   - mongodb
 
-before_script: composer install -n
+before_script:
+  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - composer install -n
 
 # optionally specify a list of environments, for example to test different RDBMS
 #env:
